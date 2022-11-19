@@ -8,7 +8,7 @@ type ResEventDetails struct {
 	TotalWorkshops int    `json:"total_workshops,omitempty"`
 }
 type ResEventDetailsWithPag struct {
-	ResEventDetails []ResEventDetails `json:"id"`
+	ResEventDetails []ResEventDetails `json:"events"`
 	Pagination      Pagination        `json:"pagination"`
 }
 type Pagination struct {
