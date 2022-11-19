@@ -6,6 +6,8 @@ import (
 )
 
 func InitializeRoutes(router *gin.Engine) {
+	//router.GET("/event-list/:limit/:offset", handler.GetEvents)
+
 	router.GET("/event-list/:limit/:offset", handler.GetEvents)
 	router.GET("get-event-details/:eventId", handler.GetEventDetails)
 	router.GET("get-workshop-details/:workshopId", handler.GetWorkshopDetails)

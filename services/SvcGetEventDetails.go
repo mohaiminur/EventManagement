@@ -11,12 +11,17 @@ var AllEventDetails []response.ResEventDetails
 func GetEvents(limit string, offset string) ([]response.ResEventDetails, error) {
 
 	config.DB.Raw("select * from events e  LIMIT " + limit + " offset " + offset + "").Scan(&AllEventDetails)
-
 	fmt.Println("select * from events e  LIMIT " + limit + " offset " + offset + "")
 	return AllEventDetails, nil
 }
 
 var EventDetails response.ResEventDetails
+
+func GetTotal() (response.ResEventDetails, error) {
+	config.DB.Raw("select count(id) as id from events").Scan(&EventDetails.Id)
+
+	return EventDetails, nil
+}
 
 func SvcGetEventDetails(id string) (response.ResEventDetails, error) {
 
