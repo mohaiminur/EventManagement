@@ -3,7 +3,18 @@ package services
 import (
 	"EventManagement/config"
 	"EventManagement/model/response"
+	"fmt"
 )
+
+var AllEventDetails []response.ResEventDetails
+
+func GetEvents(limit string, offset string) ([]response.ResEventDetails, error) {
+
+	config.DB.Raw("select * from events e  LIMIT " + limit + " offset " + offset + "").Scan(&AllEventDetails)
+
+	fmt.Println("select * from events e  LIMIT " + limit + " offset " + offset + "")
+	return AllEventDetails, nil
+}
 
 var EventDetails response.ResEventDetails
 
