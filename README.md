@@ -8,6 +8,9 @@
 <b>ORM: </b> GORM </br>
 
 ####  DB table schema:
+<b> DB name: </b> `event_management`
+<b> Tables: </b>
+
 ```
 events (id, title, start_at, end_at)
 
@@ -17,6 +20,8 @@ reservations (id, name, email, workshop_id)
 
 ```
 #### REST API LIST:
+
+<b>Notes: </b> Project runs on localhost server and 8081 port.
 
 1. <b> Event List API, where we can get all active events with pagination: </b>
 
