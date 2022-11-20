@@ -24,7 +24,9 @@ func SvcGetEventDetails(id string) (response.ResEventDetails, error) {
 	return EventDetails, nil
 }
 
+var EventDetailss response.ResEventDetails
+
 func GetEventDetails(id string) (response.ResEventDetails, error) {
-	config.DB.Raw("select e.id, e.title, e.start_at, e.end_at from events e  where e.id= ?", id).Scan(&EventDetails)
-	return EventDetails, nil
+	config.DB.Raw("select e.id, e.title, e.start_at, e.end_at from events e  where e.id= ?", id).Scan(&EventDetailss)
+	return EventDetailss, nil
 }
