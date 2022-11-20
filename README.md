@@ -9,6 +9,7 @@
 
 ####  DB table schema:
 <b> DB name: </b> `event_management`
+<br>
 <b> Tables: </b>
 
 ```
