@@ -5,14 +5,19 @@ import (
 	"EventManagement/services"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"time"
 )
 
 func GetWorkshopByEvent(c *gin.Context) {
+
+	t := time.Now()
+	now := t.Format("2006-01-02 15:04:05")
+
 	id := c.Param("eventId")
 	var resWorkshopByEv response.ResWorkshopsByEvents
 	EventDetails, err := services.SvcGetEventDetails(id)
 
-	Workshop, err := services.SvcGetWorkshopByEvent(id)
+	Workshop, err := services.SvcGetWorkshopByEvent(id, now)
 	if err != nil {
 		panic(err)
 	}

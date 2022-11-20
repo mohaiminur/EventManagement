@@ -7,6 +7,7 @@ import (
 	"math"
 	"net/http"
 	"strconv"
+	"time"
 	//"strconv"
 )
 
@@ -27,6 +28,10 @@ func GetEventDetails(c *gin.Context) {
 
 }
 func GetEvents(c *gin.Context) {
+	t := time.Now()
+	now := t.Format("2006-01-02 15:04:05")
+	//fmt.Println(t.Format(time.RFC3339))
+
 	limitt := c.Param("limit")
 	offsett := c.Param("offset")
 	limit, _ := strconv.Atoi(limitt)
@@ -34,8 +39,8 @@ func GetEvents(c *gin.Context) {
 	pages := limit
 
 	PerPage := (offset - 1) * (limit)
-	TotalEvent, _ := services.GetTotal()
-	EventDetails, err := services.GetEvents(limitt, strconv.Itoa(PerPage))
+	TotalEvent, _ := services.GetTotal(now)
+	EventDetails, err := services.GetEvents(limitt, strconv.Itoa(PerPage), now)
 	if err != nil {
 		panic(err)
 	}

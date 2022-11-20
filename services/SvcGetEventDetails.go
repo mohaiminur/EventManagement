@@ -7,17 +7,17 @@ import (
 
 var AllEventDetails []response.ResEventDetails
 
-func GetEvents(limit string, offset string) ([]response.ResEventDetails, error) {
+func GetEvents(limit string, offset string, now string) ([]response.ResEventDetails, error) {
 
-	config.DB.Raw("select * from events e  LIMIT " + limit + " offset " + offset + "").Scan(&AllEventDetails)
+	config.DB.Raw("select * from events e where e.start_at > '" + now + "' LIMIT " + limit + " offset " + offset + "").Scan(&AllEventDetails)
 	//	fmt.Println("select * from events e  LIMIT " + limit + " offset " + offset + "")
 	return AllEventDetails, nil
 }
 
 var EventDetails response.ResEventDetails
 
-func GetTotal() (response.ResEventDetails, error) {
-	config.DB.Raw("select count(id) as id from events").Scan(&EventDetails.Id)
+func GetTotal(now string) (response.ResEventDetails, error) {
+	config.DB.Raw("select count(id) as id from events e where e.start_at > '" + now + "' ").Scan(&EventDetails.Id)
 
 	return EventDetails, nil
 }
