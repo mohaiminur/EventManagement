@@ -122,11 +122,12 @@ Request:
 localhost:8081/workshop-reservation
 
 Request Body:
+```
 {
 "name":"sifat",
 "email":"sifat404@gmail.com"
 }
-
+```
 Response:
 ```
 {
