@@ -13,8 +13,8 @@ func GetWorkshopDetails(c *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
-	var WorkshopDetail []response.ResWorkshopDetails
-	if WorkshopDetails[0].Id == 0 {
+	var WorkshopDetail response.ResWorkshopDetails
+	if WorkshopDetails.Id == 0 {
 		c.JSON(404, "Workshop not found by id: "+id)
 	} else {
 		WorkshopDetail = WorkshopDetails
