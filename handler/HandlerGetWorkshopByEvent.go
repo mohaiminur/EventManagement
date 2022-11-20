@@ -21,13 +21,7 @@ func GetWorkshopByEvent(c *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
-	//Workshops := []response.ResWorkshopDetails{}
-	//if len(Workshop) > 0 {
-	//	for i := 0; i < len(Workshop); i++ {
-	//		Workshops[i] = Workshop[i]
-	//		//	workshops=append(workshops,workshop[i])
-	//	}
-	//}
+
 	resWorkshopByEv.Id = EventDetails.Id
 	resWorkshopByEv.Title = EventDetails.Title
 	resWorkshopByEv.StartAt = EventDetails.StartAt

@@ -25,7 +25,6 @@ func GetEventDetails(c *gin.Context) {
 
 		c.JSON(http.StatusOK, eventDetail)
 	}
-
 }
 func GetEvents(c *gin.Context) {
 	t := time.Now()

@@ -19,4 +19,3 @@ type Pagination struct {
 }
 
 //	Workshops      []ResWorkshopDetails `json:"workshops,omitempty" bson:"workshops,omitempty"`
-//	Workshops      []ResWorkshopDetails `json:"workshops,omitempty"`
