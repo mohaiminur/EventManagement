@@ -15,7 +15,7 @@ func SvcGetWorkshopDetails(id string) (response.ResWorkshopDetails, error) {
 
 var WorkshopDetail response.WorkshopDetails
 
-func GetWorkshopDetails(id string) (response.WorkshopDetails, error) {
+func GetWorkshopDetail(id string) (response.WorkshopDetails, error) {
 	config.DB.Raw("select w.id, w.event_id, w.title, w.description, w.start_at, w.end_at "+
 		"from workshops w where w.id= ?", id).Scan(&WorkshopDetail)
 	return WorkshopDetail, nil

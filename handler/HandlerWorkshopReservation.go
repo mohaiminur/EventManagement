@@ -30,7 +30,7 @@ func WorkshopReservation(c *gin.Context) {
 	workshopid := strconv.Itoa(reservation.WorkshopId)
 	//got workshop
 
-	workshop, err := services.GetWorkshopDetails(workshopid)
+	workshop, err := services.GetWorkshopDetail(workshopid)
 	resWorkshop.Id = workshop.Id
 	resWorkshop.Title = workshop.Title
 	resWorkshop.Description = workshop.Description
