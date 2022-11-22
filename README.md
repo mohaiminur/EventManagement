@@ -122,25 +122,28 @@ Response:
     "total_reservations": 3
 }
 ```
-5.<b> Make a workshop reservation API </b>
+5.<b> Make a workshop reservation API </b> </br>
+If user make a workshop reservation then they need to post with below post body
+</br>
+Request: (Post Api)
 
-Request:
-localhost:8081/workshop-reservation
+localhost:8081/workshop-reservationV2
 
-Request Body:
+Post Body:
 ```
 {
-    "name":"sifat",
-    "email":"sifat404@gmail.com"
+    "name":"mohaiminur",
+    "email":"mohaiminur404@gmail.com",
+    "workshop_id":"1"
 }
 ```
 Response:
 ```
 {
     "reservation": {
-        "id": 2,
-        "name": "sifat",
-        "email": "sifat404@gmail.com"
+        "id": 1,
+        "name": "mohaiminur",
+        "email": "mohaiminur404@gmail.com"
     },
     "event": {
         "id": 1,
@@ -149,12 +152,43 @@ Response:
         "end_at": "2022-12-31 03:14:07"
     },
     "workshop": {
-        "id": 2,
-        "title": "workshop2",
+        "id": 1,
+        "title": "workshop1",
         "description": "this is event1 workshop",
-        "start_at": "2022-10-19 03:14:07",
+        "start_at": "2022-12-19 03:14:07",
         "end_at": "2022-12-31 03:14:07"
     }
 }
 ```
+if user already reserved workshop then if they only give existing username and email then they can also get workshop reservation
+```
+{
+"name":"mohaiminur",
+"email":"mohaiminur404@gmail.com"
+}
+```
+Response:
+```
+{
+    "reservation": {
+        "id": 1,
+        "name": "mohaiminur",
+        "email": "mohaiminur404@gmail.com"
+    },
+    "event": {
+        "id": 1,
+        "title": "event1",
+        "start_at": "2022-12-19 03:14:07",
+        "end_at": "2022-12-31 03:14:07"
+    },
+    "workshop": {
+        "id": 1,
+        "title": "workshop1",
+        "description": "this is event1 workshop",
+        "start_at": "2022-12-19 03:14:07",
+        "end_at": "2022-12-31 03:14:07"
+    }
+}
+```
+
 ---------------------------------------------Thanks------------------------------------------------
