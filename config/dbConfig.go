@@ -16,12 +16,13 @@ var DB *gorm.DB
 var _ error
 
 func InitialMigrationForStaging() {
+
 	dsn := "root:sifat@tcp(localhost:3306)/event_management?tls=false&parseTime=false&loc=Asia%2FDhaka&multiStatements=true"
 
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
-		Logger:      logger.Default.LogMode(logger.Silent),
-		PrepareStmt: true,
-		//	SkipDefaultTransaction: true,
+		Logger:                 logger.Default.LogMode(logger.Silent),
+		PrepareStmt:            true,
+		SkipDefaultTransaction: true,
 	})
 	if err != nil {
 		fmt.Println("failed to connect db, got error: %v", err)
